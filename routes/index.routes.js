@@ -1,13 +1,17 @@
 const router = require("express").Router();
 
-router.get("/", (req, res, next) => {
-  res.json("All good in here");
-})
+router.use("/mentors", require('./mentors.routes'))
 
-router.use("/coasters", require('./coaster.routes'))
+// router.use("/profile", require('./profile.routes'))
+
+router.use("/questions", require('./questions.routes'))
 
 router.use("/auth", require('./auth.routes'))
 
 router.use("/upload", require('./upload.routes'))
+
+router.get("/", (req, res, next) => {
+  res.json("All good in here");
+})
 
 module.exports = router
